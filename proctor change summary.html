@@ -130,28 +130,7 @@
                 <textarea class="w-full input-box" placeholder="e.g., Rolling out new model to 100% after positive A/B test results on 'applystarts'. See Slack thread for discussion."></textarea>
             </div>
 
-            <!-- What's the expected impact? -->
-            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-                <div class="flex justify-between items-center mb-2 section-header-container tooltip-container">
-                    <h2 class="text-xl font-semibold text-gray-700">What's the expected impact?</h2>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
-                            <path d="M12 17h.01"></path>
-                        </svg>
-                        <div class="tooltip-text">
-                            This ties the technical change directly to the anticipated outcome, ensuring that the change is intentional and its potential effects are considered. This information is vital for an AI to correlate your actions with changes in performance, helping it to quickly diagnose problems or confirm success.
-                        </div>
-                    </div>
-                </div>
-                <p class="text-sm text-gray-500 mb-4">
-                    Briefly state the anticipated effect on <strong>metrics, user behavior, system behavior</strong>, etc.
-                </p>
-                <textarea class="w-full input-box" placeholder="e.g., Expected to increase apply starts by 2% while keeping sponsored clicks neutral. We also expect a 5% increase in API calls to the ranking service, but no impact on latency."></textarea>
-            </div>
-
-                        <!-- New section: Where (Intended Audience) -->
+            <!-- New section: Where (Intended Audience) -->
             <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
                 <div class="flex justify-between items-center mb-2 section-header-container tooltip-container">
                     <h2 class="text-xl font-semibold text-gray-700">Where is the expected impact?</h2>
@@ -172,6 +151,26 @@
                 <textarea class="w-full input-box" placeholder="e.g., All Surfaces (Mobile, Web), US, Android/iOS devices"></textarea>
             </div>
 
+            <!-- What's the expected impact? -->
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <div class="flex justify-between items-center mb-2 section-header-container tooltip-container">
+                    <h2 class="text-xl font-semibold text-gray-700">What's the expected impact?</h2>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+                            <path d="M12 17h.01"></path>
+                        </svg>
+                        <div class="tooltip-text">
+                            This ties the technical change directly to the anticipated outcome, ensuring that the change is intentional and its potential effects are considered. This information is vital for an AI to correlate your actions with changes in performance, helping it to quickly diagnose problems or confirm success.
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mb-4">
+                    Briefly state the anticipated effect on <strong>metrics, user behavior, system behavior</strong>, etc.
+                </p>
+                <textarea class="w-full input-box" placeholder="e.g., Expected to increase apply starts by 2% while keeping sponsored clicks neutral. We also expect a 5% increase in API calls to the ranking service, but no impact on latency."></textarea>
+            </div>
         </div>
     </div>
 </body>
