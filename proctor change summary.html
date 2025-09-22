@@ -151,6 +151,27 @@
                 <textarea class="w-full input-box" placeholder="e.g., Expected to increase apply starts by 2% while keeping sponsored clicks neutral. We also expect a 5% increase in API calls to the ranking service, but no impact on latency."></textarea>
             </div>
 
+                        <!-- New section: Where (Intended Audience) -->
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <div class="flex justify-between items-center mb-2 section-header-container tooltip-container">
+                    <h2 class="text-xl font-semibold text-gray-700">Where (Intended Audience)</h2>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+                            <path d="M12 17h.01"></path>
+                        </svg>
+                        <div class="tooltip-text">
+                            This context is vital for segmenting your test results and for quick incident response. A change that affects only one country or device type might be invisible to a global dashboard, but this information allows an AI to pinpoint the exact location of the issue.
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mb-4">
+                    Specify the surface, country, and device type you are intending to impact.
+                </p>
+                <textarea class="w-full input-box" placeholder="e.g., All Surfaces (Mobile, Web), US, Android/iOS devices"></textarea>
+            </div>
+
         </div>
     </div>
 </body>
