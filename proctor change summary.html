@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Summary UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip-text {
+            visibility: hidden;
+            position: absolute;
+            z-index: 10;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 6px;
+            width: 300px;
+            bottom: unset;
+            top: 125%;
+            left: 50%;
+            margin-left: -150px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: unset;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent;
+        }
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Make the entire header container a hover target */
+        .main-header-container,
+        .section-header-container {
+            cursor: help;
+        }
+        /* Styles for the text areas */
+        .input-box {
+            min-height: 96px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            color: #4b5563;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            resize: none;
+        }
+        .input-box:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="p-8 flex justify-center items-center min-h-screen">
+
+    <div class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl">
+        <div class="flex items-center space-x-2 relative mb-8 main-header-container tooltip-container">
+            <h1 class="text-3xl font-bold text-gray-800">Change Summary</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 hover:text-gray-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+                <path d="M12 17h.01"></path>
+            </svg>
+            <div class="tooltip-text">
+                Adding this summary isn't just about documenting a change—it's about providing a clear, machine-readable statement that helps reviewers, automated systems, and future investigators understand your intent. Your clear summary here can prevent costly mistakes and speed up incident investigations.
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6">
+
+            <!-- What's changing? -->
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <div class="flex justify-between items-center mb-2 section-header-container tooltip-container">
+                    <h2 class="text-xl font-semibold text-gray-700">What's changing?</h2>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+                            <path d="M12 17h.01"></path>
+                        </svg>
+                        <div class="tooltip-text">
+                            While the system logs the raw configuration changes, this summary provides essential context. It tells a reviewer what <strong>specifically</strong> you're trying to accomplish, allowing them to quickly verify that the actual change matches your strategic intent.
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mb-4">
+                    Describe the previous and new states.
+                </p>
+                <textarea class="w-full input-box" placeholder="e.g., From: Allocation was 50/50. Model 'v1' was being used.&#10;To: Allocation is now 100/0. Model 'v2' is being used."></textarea>
+            </div>
+
+            <!-- Why are you making this change? -->
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <div class="flex justify-between items-center mb-2 section-header-container tooltip-container">
+                    <h2 class="text-xl font-semibold text-gray-700">Why are you making this change?</h2>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+                            <path d="M12 17h.01"></path>
+                        </svg>
+                        <div class="tooltip-text">
+                            This section is the most critical part for both human and AI analysis. It explains the "why" behind the change, linking the action to the experiment's hypothesis and broader goals.
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mb-4">
+                    Explain the purpose of this change. Link communications if applicable.
+                </p>
+                <textarea class="w-full input-box" placeholder="e.g., Rolling out new model to 100% after positive A/B test results on 'applystarts'. See Slack thread for discussion."></textarea>
+            </div>
+
+            <!-- What's the expected impact? -->
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <div class="flex justify-between items-center mb-2 section-header-container tooltip-container">
+                    <h2 class="text-xl font-semibold text-gray-700">What's the expected impact?</h2>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"></path>
+                            <path d="M12 17h.01"></path>
+                        </svg>
+                        <div class="tooltip-text">
+                            This ties the technical change directly to the anticipated outcome. It forces a pause for thought, ensuring that the change is intentional and its potential effects are considered.
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mb-4">
+                    Briefly state the anticipated effect on <strong>metrics, user behavior, system behavior</strong>, etc.
+                </p>
+                <textarea class="w-full input-box" placeholder="e.g., Expected to increase apply starts by 2% while keeping sponsored clicks neutral. We also expect a 5% increase in API calls to the ranking service, but no impact on latency."></textarea>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
